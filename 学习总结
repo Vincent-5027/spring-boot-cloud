@@ -1,0 +1,22 @@
+集成Jsp
+一 war 或者 启动类集成一个类重写一个方法
+二 依赖2个 tomcat jasper
+三 配置2个 prefix suffix
+
+集成swagger
+一 依赖2个 swagger ui
+<dependency>
+    <groupId>io.springfox</groupId>
+    <artifactId>springfox-swagger2</artifactId>
+    <version>2.7.0</version>
+</dependency>
+<dependency>
+    <groupId>io.springfox</groupId>
+    <artifactId>springfox-swagger-ui</artifactId>
+    <version>2.7.0</version>
+</dependency>
+二 注解4个 
+启动类@enableswagger2  
+rest方法apioperation 
+rest方法模型参数@apimodelproperty 
+rest方法简单参数@apiparam
