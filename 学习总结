@@ -66,3 +66,11 @@ public class UserControllerTest {
 五 方法参数Pageable @PageableDefault（page，size，sort）dao不用spring data时一般也不用
 六 Post方法传参映射到参数对象@requestBody
 
+注解反射使用
+拿到类的class, 拿到方法, 调用isAnnotationPresent判断该方法是否使用了某个注解
+注解的生命周期, 默认只在源代码阶段, 可以用元注解@retention修饰自定义注解, 使其生命周期延伸到运行时阶段
+
+
+
+
+
