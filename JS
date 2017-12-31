@@ -1,0 +1,30 @@
+面向对象
+function createPerson(name, age){ // 工厂模式 弊端:没有new/每个对象是不同的属性和方法,浪费资源
+  // 原料
+  var obj = new Object();
+  // 加工
+  obj.name=name;
+  obj.age=age;
+  obj.show=function(){
+    alert(this.name+"--"+this.age);
+  }
+  // 出厂
+  return obj;
+}
+new一个
+function createPerson(name, age){ // new模式
+  // 原料
+  // var this = new Object(); // 系统自动做的
+  // 加工
+  this.name=name;
+  this.age=age;
+  this.show=function(){
+    alert(this.name+"--"+this.age);
+  }
+  // 出厂
+  // return this; // 系统自动做的
+}
+构造方法的prototype可以增加方法, 并不是每个对象一个, 减小了开销
+系统类Array.prototype可以增加
+自定义的类也可以增加
+构造函数加属性, 原型加方法
