@@ -1,0 +1,37 @@
+Java变量及类名称定义坑之第二个字母大写
+ 在Java开发中，命名规范一直备受关注，驼峰命名法各种命名规范常被开发中使用，在此不再赘述。本文主要记录一下当命名中第二个字母大写遇到的麻烦。
+一、Entity属性第二个字段为大写，如
+public class AreaTest {
+private String aTest;
+
+private String BTest;
+
+public String getaTest() {
+return aTest;
+}
+
+public void setaTest(String aTest) {
+this.aTest = aTest;
+}
+public String getBTest() {
+return BTest;
+}
+
+public void setBTest(String bTest) {
+BTest = bTest;
+}
+}
+当第一个字母为小写，生成的getter和setter方法get和set后面的第一个字母为小写，后面的为大写。若此时通过反射调用set方法为此entity实例属性设置值或通过get方法取此entity实例的属性值时需注意，传方法名容易错误的将名称写成getATest或setATest（因为其他正常的命名方式是第一个字母大写），此时会报没有此方法的错误。
+二、类名第二个字母大写，如
+@Service
+public class PProcesServiceImpl implements PProcesService{
+
+@Autowired
+private MongoTemplate mongoTemplate;
+@Override
+public String save(PProces pProces){
+}
+}
+Spring容器中时生成的实例ID和名称为“PProcesServiceImpl”，正常的实例和名称为第一个字母小写，此时应注意不能写成pProcesServiceImpl，否则会报找不到实例的错误。
+记录一下坑，命名时还得注意一下此问题。若有误，欢迎指正。
+
